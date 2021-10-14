@@ -1,0 +1,11 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Climate Change.",
+    "data": {"url": "https://raw.githubusercontent.com/airf0002/FIT3179_assignment2/main/data/climate-change.csv"},
+    "mark": "line",
+    "encoding": {
+      "x": {"field": "day", "type": "temporal"},
+      "y": {"field": "temperature_anomaly", "type": "quantitative"},
+      "color": {"field": "Entity", "type": "nominal"}
+    }
+  }
