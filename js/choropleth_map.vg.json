@@ -1,0 +1,32 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 500,
+  "height": 300,
+  "data": {
+    "url": "js/ne_110m_populated_places_simple.topojson",
+    "format": {
+      "type": "topojson",
+      "feature": "ne_110m_populated_places_simple"
+    }
+  },
+  "transform": [{
+    "lookup": "id",
+    "from": {
+      "data": {
+        "url": "data/annual-co2-emissions-per-country.csv"
+      },
+      "key": "id",
+      "fields": ["Annual CO2 emissions"]
+    }
+  }],
+  "projection": {
+    "type": "equirectangular"
+  },
+  "mark": "geoshape",
+  "encoding": {
+    "color": {
+      "field": "Annual CO2 emissions",
+      "type": "quantitative"
+    }
+  }
+}
