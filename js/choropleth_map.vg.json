@@ -1,32 +1,42 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 500,
-  "height": 300,
+  "title": "COVID-19 Active Cases (10 Oct 2020)",
+  "width": 800,
+  "height": 600,
   "data": {
-    "url": "js/ne_110m_populated_places_simple.topojson",
+    "url": "https://raw.githubusercontent.com/KaneSec/vega_lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
     "format": {
-      "type": "topojson",
-      "feature": "ne_110m_populated_places_simple"
-    }
+          "type": "topojson",
+          "feature": "ne_110m_admin_0_countries"
+        }
   },
   "transform": [{
-    "lookup": "id",
-    "from": {
-      "data": {
-        "url": "data/annual-co2-emissions-per-country.csv"
-      },
-      "key": "id",
-      "fields": ["Annual CO2 emissions"]
+      "lookup": "properties.NAME",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/airf0002/FIT3179_assignment2/c7aca09a35761d065bbf660e192f6db4e1629e9e/data/annual-co2-emissions-per-country.csv"
+        },
+        "key": "Entity",
+        "fields": ["Annual CO2 emissions"]
+      }
     }
-  }],
+  ],
   "projection": {
     "type": "equirectangular"
   },
-  "mark": "geoshape",
+  "mark": {
+    "type": "geoshape"
+    },
   "encoding": {
     "color": {
       "field": "Annual CO2 emissions",
-      "type": "quantitative"
-    }
+      "type": "quantitative",
+      "scale": {"type": "log"}
+    },
+    "tooltip": [
+      {"field": "properties.NAME", "type": "nominal", "title": "Country"},
+      {"field": "Annual CO2 emissions", "type": "quantitative"}
+    ]
   }
+
 }
