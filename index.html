@@ -138,17 +138,21 @@
   </div>
   <!-- end pure grid group -->
  
-
+  <div id="vis2_climate_change" class="vis-container"></div>
 
 
 <script type="text/javascript">
   var spec1 = "https://raw.githubusercontent.com/airf0002/FIT3179_assignment2/main/js/choropleth_map.vg.json";
+  var spec2 = "https://raw.githubusercontent.com/airf0002/FIT3179_assignment2/main/js/climate_change_line.json";
 
 
   vegaEmbed('#vis1_choropleth_map', spec1, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 
+  vegaEmbed('#vis2_climate_change', spec2, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
   
 
 

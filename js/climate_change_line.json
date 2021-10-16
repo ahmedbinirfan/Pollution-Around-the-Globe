@@ -5,45 +5,6 @@
     "data": {
       "url": "https://raw.githubusercontent.com/airf0002/FIT3179_assignment2/main/data/climate-change.csv"
     },
-    "params": [
-      {
-        "name": "Year_Above",
-        "value": 1970,
-        "bind": {
-          "input": "range",
-          "min": 1970,
-          "max": 2018,
-          "step": 5,
-          "name": "Minimum year"
-        }
-      },
-      {
-        "name": "Continent_selection",
-        "value":"World",
-        "bind": {
-          "input": "select",
-          "options": [
-            "World",
-            "North America",
-            "South America",
-            "Europe",
-            "Africa",
-            "Asia",
-            "Oceania"
-          ],
-          "labels": [
-            "World",
-            "North America",
-            "South America",
-            "Europe",
-            "Africa",
-            "Asia",
-            "Oceania"
-          ],
-          "name": "Continent: "
-        }
-      }
-    ],
     "transform": [
       {
         "filter": "datum.Country == Continent_selection"
