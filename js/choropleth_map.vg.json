@@ -9,6 +9,18 @@
           "feature": "ne_110m_admin_0_countries"
         }
   },
+  "params": [
+    {
+    "name": "Year_Above",
+    "value": 1970,
+    "bind": {
+      "input": "range",
+      "min": 1970,
+      "max": 2019,
+      "step": 5,
+      "name": "Minimum year"
+    }
+  }],
   "transform": [{
       "lookup": "properties.NAME",
       "from": {
@@ -18,7 +30,8 @@
         "key": "Entity",
         "fields": ["Annual CO2 emissions (per capita)"]
       }
-    }
+    },
+    {"filter": "year(datum.Year) > Year_Above"}
   ],
   "projection": {
     "type": "equirectangular"
