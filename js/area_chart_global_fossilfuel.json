@@ -19,7 +19,7 @@
         "y": {
           "field": "Consumption",
           "type": "quantitative",
-          "title": "Investment ($ Billion)",
+          "title": "Fossil Fuel Consumption (TWh)",
           "aggregate": "sum",
           "axis": {"tickCount":5, "domainColor":""}
           },
@@ -35,7 +35,7 @@
           "field": "Consumption",
           "type": "quantitative",
           "format": ".2f",
-          "title": "Investment (Billion USD) "
+          "title": "Fossil Fuel Consumption (TWh)"
         },
         {"field": "Year", "type": "temporal", "timeUnit": "year", "title": "Year"}
       ]
@@ -45,14 +45,14 @@
         "mark": {
           "type": "text",
           "align": "left",
-          "dy":-170,
+          "dy":-150,
           "dx":355
         },
         "encoding": {
-          "text": {"value": "Others", "type": "nominal"},
+          "text": {"value": "Coal", "type": "nominal"},
           "color": {"value": "black"},
           "opacity":{
-            "condition": {"test": "year(datum['Year']) == 2015 && datum.Entity=='tBrazil'", "value": 1},
+            "condition": {"test": "year(datum['Year']) == 2019 && datum.Type=='Coal'", "value": 1},
             "value": 0
           }
         }
@@ -63,75 +63,37 @@
         "mark": {
           "type": "text",
           "align": "left",
-          "dy":-50,
+          "dy":-30,
           "dx":355
         },
         "encoding": {
-          "text": {"value": "Asia & Oceania (excl. China)", "type": "nominal"},
+          "text": {"value": "Gas", "type": "nominal"},
           "color": {"value": "black"},
           "opacity":{
-            "condition": {"test": "year(datum['Year']) == 2015 && datum.Entity=='zEurope'", "value": 1},
+            "condition": {"test": "year(datum['Year']) == 2019 && datum.Type=='Gas'", "value": 1},
             "value": 0
           }
         }
   
       },
-  
-      {
+
+    {
         "mark": {
           "type": "text",
           "align": "left",
-          "dy":-110,
+          "dy":100,
           "dx":355
         },
         "encoding": {
-          "text": {"field": "Entity2", "type": "nominal"},
+          "text": {"value": "Oil", "type": "nominal"},
           "color": {"value": "black"},
           "opacity":{
-            "condition": {"test": "year(datum['Year']) == 2015 && datum.Entity=='vUnited States of America'", "value": 1},
-            "value": 0
-          }
-        }
-  
-      },
-  
-      {
-        "mark": {
-          "type": "text",
-          "align": "left",
-          "dy":50,
-          "dx":355
-        },
-        "encoding": {
-          "text": {"field": "Entity2", "type": "nominal"},
-          "color": {"value": "black"},
-          "opacity":{
-            "condition": {"test": "year(datum['Year']) == 2015 && datum.Entity=='yChina'", "value": 1},
-            "value": 0
-          }
-        }
-  
-      },
-  
-      {
-        "mark": {
-          "type": "text",
-          "align": "left",
-          "dy":160,
-          "dx":355
-        },
-        "encoding": {
-          "text": {"field": "Entity2", "type": "nominal"},
-          "color": {"value": "black"},
-          "opacity":{
-            "condition": {"test": "year(datum['Year']) == 2015 && datum.Entity=='zEurope'", "value": 1},
+            "condition": {"test": "year(datum['Year']) == 2019 && datum.Type=='Oil'", "value": 1},
             "value": 0
           }
         }
   
       }
-  
-  
     
     ],
      "config": {
