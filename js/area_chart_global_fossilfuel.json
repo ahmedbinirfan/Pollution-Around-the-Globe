@@ -1,0 +1,19 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 300, "height": 200,
+    "data": {"url": "https://raw.githubusercontent.com/airf0002/FIT3179_assignment2/main/data/global-fossil-fuel-consumption.csv"},
+    "mark": "area",
+    "encoding": {
+      "x": {
+        "field": "Year", 
+        "type": "temporal",
+        "axis": {"format": "%Y"}
+      },
+      "y": {
+        "aggregate": "sum", "field": "Consumption"
+      },
+      "color": {
+        "field": "Type"
+      }
+    }
+  }
