@@ -1,4 +1,4 @@
-Entity,Code,Year,Per capita plastic waste (kg/person/day),GDP,"Total population (Gapminder, HYDE & UN)",Continent
+Entity,Code,Year,Plastic,GDP,Population,Continent
 Abkhazia,OWID_ABK,2015,,,,Asia
 Afghanistan,AFG,2002,,1189.784668,22600774,
 Afghanistan,AFG,2003,,1235.810063,23680871,
