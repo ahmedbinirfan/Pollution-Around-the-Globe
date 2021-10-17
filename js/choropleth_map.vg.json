@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 850,
-  "height": 300,
+  "height": 400,
   "data": {
     "url": "https://raw.githubusercontent.com/airf0002/FIT3179_assignment2/main/js/ne_110m.json",
     "format": {
@@ -9,18 +9,9 @@
           "feature": "ne_110m_admin_0_countries"
         }
   },
-  "params": [
-    {
-    "name": "Year_Above",
-    "value": 1970,
-    "bind": {
-      "input": "range",
-      "min": 1970,
-      "max": 2019,
-      "step": 5,
-      "name": "Minimum year"
-    }
-  }],
+  "projection": {
+    "type": "equirectangular"
+  },
   "transform": [{
       "lookup": "properties.NAME",
       "from": {
@@ -30,12 +21,9 @@
         "key": "Entity",
         "fields": ["Annual CO2 emissions (per capita)"]
       }
-    },
-    {"filter": "year(datum.Year) > Year_Above"}
+    }
   ],
-  "projection": {
-    "type": "equirectangular"
-  },
+  
   "mark": {"type": "geoshape", "stroke": "whitesmoke"},
   "encoding": {
     "color": {
