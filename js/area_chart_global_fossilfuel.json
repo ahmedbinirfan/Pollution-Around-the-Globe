@@ -30,12 +30,12 @@
           },
         
         "tooltip": [
-        {"field": "Type", "type": "nominal", "title": "Entity"},
+        {"field": "Type", "type": "nominal", "title": "Fossil Fuel Type"},
         {
           "field": "Consumption",
           "type": "quantitative",
           "format": ".2f",
-          "title": "Fossil Fuel Consumption (TWh)"
+          "title": "Fuel Consumption (TWh)"
         },
         {"field": "Year", "type": "temporal", "timeUnit": "year", "title": "Year"}
       ]
