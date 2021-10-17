@@ -1,0 +1,49 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 700,
+    "height": 400,
+    "data": {"url": "https://raw.githubusercontent.com/airf0002/FIT3179_assignment2/main/data/food-footprints.csv"},
+    "layer":[{"mark": "bar",
+    "encoding": {
+        "color": {"value":"darkred"}
+        ,
+        "y": {
+          "field": "Entity",
+          "type": "nominal",
+          "title": "",
+          "sort":"-x",
+          "axis": {"tickCount":5, "domainColor":""}
+          },
+        "x": {
+          "field": "GHG emissions per kilogram (Poore & Nemecek, 2018)", 
+          "type": "quantitative",
+          "aggregate": "sum",
+          "title": "Greenhouse gas emissions per kilogram",
+          "axis": {"grid": false, "domainColor":"", "ticks": false}
+          },
+        
+        "tooltip": [
+        {"field": "Entity", "type": "nominal", "title": "Food"},
+        {
+          "field": "GHG emissions per kilogram (Poore & Nemecek, 2018)",
+          "type": "quantitative",
+          "format": ".2f",
+          "title": "GHG emissions (/kgs)"
+        }
+      ]
+    }
+    },
+    {"mark": {
+        "type": "text",
+        "align": "right",
+        "dx": 300,
+        "dy": -70,
+        "text": "Meat products emits the most greenhouse gases per kilogram of food",
+        "fontSize": 15,
+        "fontWeight":"lighter"
+      }
+}
+
+    ]
+  }
+  
