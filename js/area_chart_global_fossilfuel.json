@@ -1,19 +1,144 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 300, "height": 200,
-    "data": {"url": "https://raw.githubusercontent.com/airf0002/FIT3179_assignment2/main/data/global-fossil-fuel-consumption.csv"},
-    "mark": "area",
-    "encoding": {
-      "x": {
-        "field": "Year", 
-        "type": "temporal",
-        "axis": {"format": "%Y"}
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "width": 620,
+    "height": 400,
+    "data": {
+      "url": "https://raw.githubusercontent.com/airf0002/FIT3179_assignment2/main/data/global-fossil-fuel-consumption.csv"
+    },
+    
+    "layer":[ 
+      {"mark": {"type": "area"},
+  
+      "encoding": {
+        "color": {
+        "field": "Type",
+        "scale": {"scheme": "redgrey"},
+        "sort": "-color",
+        "legend":false}
+        ,
+        "y": {
+          "field": "Consumption",
+          "type": "quantitative",
+          "title": "Investment ($ Billion)",
+          "aggregate": "sum",
+          "axis": {"tickCount":5, "domainColor":""}
+          },
+        "x": {
+          "field": "Year", 
+          "type": "temporal",
+          "axis": {"grid": false, "domainColor":"", "ticks": false}
+          },
+        
+        "tooltip": [
+        {"field": "Type", "type": "nominal", "title": "Entity"},
+        {
+          "field": "Consumption",
+          "type": "quantitative",
+          "format": ".2f",
+          "title": "Investment (Billion USD) "
+        },
+        {"field": "Year", "type": "temporal", "timeUnit": "year", "title": "Year"}
+      ]
+    }},
+  
+    {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "dy":-170,
+          "dx":355
+        },
+        "encoding": {
+          "text": {"value": "Others", "type": "nominal"},
+          "color": {"value": "black"},
+          "opacity":{
+            "condition": {"test": "year(datum['Year']) == 2015 && datum.Entity=='tBrazil'", "value": 1},
+            "value": 0
+          }
+        }
+  
       },
-      "y": {
-        "aggregate": "sum", "field": "Consumption"
+  
+    {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "dy":-50,
+          "dx":355
+        },
+        "encoding": {
+          "text": {"value": "Asia & Oceania (excl. China)", "type": "nominal"},
+          "color": {"value": "black"},
+          "opacity":{
+            "condition": {"test": "year(datum['Year']) == 2015 && datum.Entity=='zEurope'", "value": 1},
+            "value": 0
+          }
+        }
+  
       },
-      "color": {
-        "field": "Type"
+  
+      {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "dy":-110,
+          "dx":355
+        },
+        "encoding": {
+          "text": {"field": "Entity2", "type": "nominal"},
+          "color": {"value": "black"},
+          "opacity":{
+            "condition": {"test": "year(datum['Year']) == 2015 && datum.Entity=='vUnited States of America'", "value": 1},
+            "value": 0
+          }
+        }
+  
+      },
+  
+      {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "dy":50,
+          "dx":355
+        },
+        "encoding": {
+          "text": {"field": "Entity2", "type": "nominal"},
+          "color": {"value": "black"},
+          "opacity":{
+            "condition": {"test": "year(datum['Year']) == 2015 && datum.Entity=='yChina'", "value": 1},
+            "value": 0
+          }
+        }
+  
+      },
+  
+      {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "dy":160,
+          "dx":355
+        },
+        "encoding": {
+          "text": {"field": "Entity2", "type": "nominal"},
+          "color": {"value": "black"},
+          "opacity":{
+            "condition": {"test": "year(datum['Year']) == 2015 && datum.Entity=='zEurope'", "value": 1},
+            "value": 0
+          }
+        }
+  
       }
+  
+  
+    
+    ],
+     "config": {
+        "background":"",
+    "view": {
+       "stroke": "transparent"
     }
   }
+  }
+  
