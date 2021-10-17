@@ -268,11 +268,52 @@
 
 
 
+
+  <!-- 5. Greenhouse Gas Emission-->
+  <div class=pure-a>
+    <div class="pure-u-1-1">
+      <h2 style="text-align:center" class="b">Greenhouse Gas Emission</h2>
+    </div>
+  </div>
+  <!-- end pure grid group -->
+
+<!-- pure grid group -->
+<div class="pure-g">
+  <div class="pure-u-3-8">
+    <div class="description description-left">
+      <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h2 class = "d" >Food production accounts for one-quarter of the world’s greenhouse gas emissions and takes up half of the planet’s habitable surface.</h2> 
+      <p> The United Nations defines food, energy, and water as the "nexus" of sustainable development. 
+        As the world's population has expanded and become wealthier, demand for all three has risen fast. 
+        Not only has demand for all three increased, but they are also intricately linked: food production 
+        requires both water and energy, traditional energy production requires water resources, and agriculture offers a potential energy source.
+      </p>
+      <br>
+    </div>
+  </div>
+  <div class="pure-u-5-8">
+    <h3 style="text-align:center">Greenhouse gas emissions per kilogram of food product</h3>
+    <div id="vis5_bar_chart" class="vis-container"></div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
 <script type="text/javascript">
   var spec1 = "https://raw.githubusercontent.com/airf0002/FIT3179_assignment2/main/js/climate_change_line.json";
   var spec2 = "https://raw.githubusercontent.com/airf0002/FIT3179_assignment2/main/js/choropleth_map.vg.json";
   var spec3 = "https://raw.githubusercontent.com/airf0002/FIT3179_assignment2/main/js/global_co2_emission.json"
   var spec4 = "https://raw.githubusercontent.com/airf0002/FIT3179_assignment2/main/js/area_chart_global_fossilfuel.json"
+  var spec5 = "https://raw.githubusercontent.com/airf0002/FIT3179_assignment2/main/js/food_bar chart.json"
 
 
   vegaEmbed('#vis1_climate_change', spec1, {"actions": false}).then(function(result) {
@@ -291,6 +332,9 @@
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
   
+  vegaEmbed('#vis5_bar_chart', spec5, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
 
 </script>
 
