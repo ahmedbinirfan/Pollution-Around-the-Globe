@@ -52,7 +52,7 @@
   ],
   "layer":[{"mark": {"type": "line",  "point": true},
   "encoding": {
-    "color":"darkred",
+    "color": {"value":"darkred"},
     "y": {
       "field": "AnnualCO2Emissions",
       "type": "quantitative",
@@ -78,8 +78,7 @@
           "dy": -180,
           "text": "Emissions growth have slowed down over last few years but yet to reach their peak",
           "fontSize": 15,
-          "fontWeight":"lighter",
-          "fontStyle":"italic"
+          "fontWeight":"lighter"
         }
 }],
    "config": {
