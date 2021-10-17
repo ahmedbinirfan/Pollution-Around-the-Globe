@@ -1,0 +1,91 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 700,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/airf0002/FIT3179_assignment2/main/data/global-co2-emission.csv"
+  },
+  "params": [
+    {
+      "name": "Year_Above",
+      "value": 1970,
+      "bind": {
+        "input": "range",
+        "min": 1970,
+        "max": 2018,
+        "step": 5,
+        "name": "Minimum year"
+      }
+    },
+    {
+      "name": "Continent_selection",
+      "value":"World",
+      "bind": {
+        "input": "select",
+        "options": [
+          "World",
+          "North America",
+          "South America",
+          "Europe",
+          "Africa",
+          "Asia",
+          "Oceania"
+        ],
+        "labels": [
+          "World",
+          "North America",
+          "South America",
+          "Europe",
+          "Africa",
+          "Asia",
+          "Oceania"
+        ],
+        "name": "Continent: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum.Country == Continent_selection"
+    },
+    {"filter": "year(datum.Year) > Year_Above"}
+  ],
+  "layer":[{"mark": {"type": "line",  "point": true},
+  "encoding": {
+    "color":"darkred",
+    "y": {
+      "field": "AnnualCO2Emissions",
+      "type": "quantitative",
+      "title": "Annual Co2 emissions (Million)",
+      "aggregate": "sum",
+      "axis": {"domainColor":""}
+    },
+    "x": {
+      "field": "Year", 
+      "type": "temporal",
+      "axis": {"grid": false, "domainColor":"", "ticks": false}
+      },
+      
+      "tooltip": [
+      {"field": "AnnualCO2Emissions", "aggregate": "sum", "format": ".2f", "type": "quantitative", "title": "Total Emission"}, 
+      {"field": "Year", "type": "temporal", "title": "Year", "timeUnit":"year"}
+    ]
+  }},
+  {"mark": {
+          "type": "text",
+          "align": "right",
+          "dx": 300,
+          "dy": -180,
+          "text": "Emissions growth have slowed down over last few years but yet to reach their peak",
+          "fontSize": 15,
+          "fontWeight":"lighter",
+          "fontStyle":"italic"
+        }
+}],
+   "config": {
+      "background":"",
+  "view": {
+     "stroke": "transparent"
+  }
+}
+}
