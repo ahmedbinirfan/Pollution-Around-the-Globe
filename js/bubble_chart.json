@@ -7,7 +7,14 @@
     "url": "https://raw.githubusercontent.com/airf0002/FIT3179_assignment2/main/data/per-capita-plastic-waste-vs-gdp-per-capita.csv"
     },
     "transform": [
-        {"filter": "datum.Continent != ''"}
+        {"filter": {"or": [
+            {"field": "Continent", "equal": "Africa"}, 
+            {"field": "Continent", "equal": "Asia"},
+            {"field": "Continent", "equal": "Antartica"},
+            {"field": "Continent", "equal": "Europe"},
+            {"field": "Continent", "equal": "North America"},
+            {"field": "Continent", "equal": "Oceania"},
+            {"field": "Continent", "equal": "South America"}]} }
         ],
     "mark": "circle",
     "encoding": {
@@ -15,23 +22,34 @@
     "field": "GDP",
     "type": "quantitative",
     "title": "Confirmed Cases",
-    "scale": {"domain": [0,55000]}, "axis": {"grid": false, "domainColor":"", "ticks": false}
+    "scale": {"domain": [0,120000]}, "axis": {"grid": false, "domainColor":"", "ticks": false}
     },
     "y": {
-    "field": "Per capita plastic waste (kg/person/day)",
-    "type": "quantitative"
+    "field": "Plastic",
+    "type": "quantitative",
+    "scale": {"domain": [0, 1]},
+    "axis": {"domainColor":""}
     },
     "color": {
     "field": "Continent",
     "type": "nominal"
     },
     "size": {
-    "field": "Total population (Gapminder, HYDE & UN)",
+    "field": "Population",
     "type": "quantitative",
     "scale": {"type": "threshold",
  "domain": [1000000, 10000000, 50000000, 100000000, 500000000],
  "range": [10, 50, 150, 200, 300, 400]},
  "legend": {"format": ".1s"}
-    }
+    },
+
+    "tooltip": [ 
+     {"field": "Entity", "type": "nominal", "title": "Country"},
+     {"field": "Plastic", "type": "quantitative", "title": "Plastic"},
+     {"field": "GDP", "type": "quantitative", "title": "GDP"},
+     {"field": "Continent", "type": "nominal", "title": "Continent"},
+     {"field": "Population", "type": "quantitative", "title": "Population"}
+
+   ]
     }
    }
