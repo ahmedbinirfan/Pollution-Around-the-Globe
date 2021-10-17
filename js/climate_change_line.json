@@ -59,6 +59,7 @@
       },
       
       "tooltip": [
+      {"field": "Entity", "type": "nominal", "title": "Region"},
       {"field": "temperature_anomaly", "aggregate": "sum", "format": ".2f", "type": "quantitative", "title": "Temperature Anomaly"}, 
       {"field": "Year", "type": "temporal", "title": "Year", "timeUnit":"year"}
     ]
