@@ -1,12 +1,82 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 850,
-    "height": 400,
-    "data": {"url": "https://raw.githubusercontent.com/airf0002/FIT3179_assignment2/main/data/climate-change.csv"},
-    "transform": [{"filter": "datum.symbol==='GOOG'"}],
-    "mark": "line",
-    "encoding": {
-      "x": {"field": "Day", "type": "temporal"},
-      "y": {"field": "temperature_anomaly", "type": "quantitative"}
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 700,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/airf0002/FIT3179_assignment2/main/data/climate-change.csv"
+  },
+  "params": [
+    {
+      "name": "Year_Above",
+      "value": 1880,
+      "bind": {
+        "input": "range",
+        "min": 1880,
+        "max": 2021,
+        "step": 5,
+        "name": "Minimum Year"
+      }
+    },
+    {
+      "name": "Region_selection",
+      "value":"World",
+      "bind": {
+        "input": "select",
+        "options": [
+          "World",
+          "Northern Hemisphere",
+          "Southern Hemisphere"
+        ],
+        "labels": [
+          "World",
+          "Northern Hemisphere",
+          "Southern Hemisphere"
+        ],
+        "name": "Region: "
+      }
     }
+  ],
+  "transform": [
+    {
+      "filter": "datum.Entity == Region_selection"
+    },
+    {"filter": "year(datum.Day) > Year_Above"}
+  ],
+  "layer":[{"mark": {"type": "line"},
+  "encoding": {
+    "color": {"value":"darkred"},
+    "y": {
+      "field": "temperature_anomaly",
+      "type": "quantitative",
+      "title": "Region Temperature Anomaly",
+      "axis": {"domainColor":""}
+    },
+    "x": {
+      "field": "Day", 
+      "type": "temporal",
+      "title": "Year",
+      "axis": {"grid": false, "domainColor":"", "ticks": false}
+      },
+      
+      "tooltip": [
+      {"field": "temperature_anomaly", "aggregate": "sum", "format": ".2f", "type": "quantitative", "title": "Temperature Anomaly"}, 
+      {"field": "Year", "type": "temporal", "title": "Year", "timeUnit":"year"}
+    ]
+  }},
+  {"mark": {
+          "type": "text",
+          "align": "right",
+          "dx": 300,
+          "dy": -180,
+          "text": "The average rate of increase in global temperature since 1981 has been 0.81C every decade.",
+          "fontSize": 15,
+          "fontWeight":"lighter"
+        }
+}],
+   "config": {
+      "background":"",
+  "view": {
+     "stroke": "transparent"
   }
+}
+}
