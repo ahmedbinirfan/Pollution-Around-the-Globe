@@ -5,6 +5,22 @@
     "data": {
       "url": "https://raw.githubusercontent.com/airf0002/FIT3179_assignment2/main/data/global-fossil-fuel-consumption.csv"
     },
+    "params": [
+      {
+        "name": "Year_Above",
+        "value": 1800,
+        "bind": {
+          "input": "range",
+          "min": 1800,
+          "max": 2019,
+          "step": 5,
+          "name": "Minimum year"
+        }
+      }
+    ],
+    "transform": [
+      {"filter": "year(datum.Year) > Year_Above"}
+    ],
     
     "layer":[ 
       {"mark": {"type": "area"},
