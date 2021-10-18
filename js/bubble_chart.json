@@ -12,7 +12,7 @@
     "field": "GDP",
     "type": "quantitative",
     "title": "GDP per capita",
-    "scale": {"type": "log","domain": [0,120000]}, "axis": {"grid": false, "domainColor":"", "ticks": false}
+    "scale": {"domain": [0,120000]}, "axis": {"grid": false, "domainColor":"", "ticks": false}
     },
     "y": {
     "field": "Plastic",
