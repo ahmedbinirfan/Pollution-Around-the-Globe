@@ -17,7 +17,7 @@
     "y": {
     "field": "Plastic",
     "type": "quantitative",
-    "title": "Per capita plastic waste",
+    "title": "Per capita plastic waste (kgs)",
     "scale": {"domain": [0, 1]},
     "axis": {"domainColor":""}
     },
@@ -37,7 +37,7 @@
     "tooltip": [ 
      {"field": "Entity", "type": "nominal", "title": "Country"},
      {"field": "Continent", "type": "nominal", "title": "Continent"},
-     {"field": "Plastic", "type": "quantitative", "title": "Plastic", "format":".2f"},
+     {"field": "Plastic", "type": "quantitative", "title": "Plastic (kgs)", "format":".2f"},
      {"field": "GDP", "type": "quantitative", "title": "GDP", "format":".2f"},
      {"field": "Population", "type": "quantitative", "title": "Population"}
 
