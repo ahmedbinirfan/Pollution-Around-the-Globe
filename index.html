@@ -304,6 +304,37 @@
 
 
 
+<!-- 6. Plastic Waste-->
+<div class=pure-a>
+  <div class="pure-u-1-1">
+    <h2 style="text-align:center" class="b">Plastic Waste</h2>
+  </div>
+</div>
+<!-- end pure grid group -->
+
+<!-- pure grid group -->
+<div class="pure-g">
+  <div class="pure-u-3-8">
+    <div class="description description-left">
+      <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h2 class = "d" >Plastic sticks around in the environment for ages, threatening wildlife and spreading toxins. Plastic also contributes to global warming.</h2> 
+      <p> The graph depicts the rate of plastic trash generation per person as a percentage of gross domestic product (GDP) per capita. 
+        Plastic trash output tends to rise as we become wealthier, however there is substantial variance among nations at all levels of development. 
+        Plastic trash per capita is significantly lower in low-income areas.
+      </p>
+      <br>
+    </div>
+  </div>
+  <div class="pure-u-5-8">
+    <h3 style="text-align:center">Greenhouse gas emissions per kilogram of food product</h3>
+    <div id="vis6_bubble_chart" class="vis-container"></div>
+  </div>
+</div>
+
 
 
 
@@ -311,10 +342,10 @@
 <script type="text/javascript">
   var spec1 = "https://raw.githubusercontent.com/airf0002/FIT3179_assignment2/main/js/climate_change_line.json";
   var spec2 = "https://raw.githubusercontent.com/airf0002/FIT3179_assignment2/main/js/choropleth_map.vg.json";
-  var spec3 = "https://raw.githubusercontent.com/airf0002/FIT3179_assignment2/main/js/global_co2_emission.json"
-  var spec4 = "https://raw.githubusercontent.com/airf0002/FIT3179_assignment2/main/js/area_chart_global_fossilfuel.json"
-  var spec5 = "https://raw.githubusercontent.com/airf0002/FIT3179_assignment2/main/js/food_bar chart.json"
-
+  var spec3 = "https://raw.githubusercontent.com/airf0002/FIT3179_assignment2/main/js/global_co2_emission.json";
+  var spec4 = "https://raw.githubusercontent.com/airf0002/FIT3179_assignment2/main/js/area_chart_global_fossilfuel.json";
+  var spec5 = "https://raw.githubusercontent.com/airf0002/FIT3179_assignment2/main/js/food_bar chart.json";
+  var spec6 = "https://raw.githubusercontent.com/airf0002/FIT3179_assignment2/main/js/bubble_chart.json";
 
   vegaEmbed('#vis1_climate_change', spec1, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
@@ -333,6 +364,10 @@
   }).catch(console.error);
   
   vegaEmbed('#vis5_bar_chart', spec5, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#vis6_bubble_chart', spec6, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 
